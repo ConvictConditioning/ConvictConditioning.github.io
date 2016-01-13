@@ -3,6 +3,9 @@
     "app-name": "website",
     "architecture": "reflux",
     "styles-language": "css",
-    "component-suffix": "js"
+    "component-suffix": "js",
+    "appName": "website",
+    "style": "css",
+    "postcss": true
   }
 }

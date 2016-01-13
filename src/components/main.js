@@ -1,18 +1,22 @@
-'use strict';
+require('normalize.css');
+require('styles/App.css');
 
-var WebsiteApp = require('./WebsiteApp');
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+import React from 'react';
 
-var content = document.getElementById('content');
+let yeomanImage = require('../images/yeoman.png');
 
-var Routes = (
-  <Route handler={WebsiteApp}>
-    <Route name="/" handler={WebsiteApp}/>
-  </Route>
-);
+class AppComponent extends React.Component {
+  render() {
+    return (
+      <div className="index">
+        <img src={yeomanImage} alt="Yeoman Generator" />
+        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
+      </div>
+    );
+  }
+}
 
-Router.run(Routes, function (Handler) {
-  React.render(<Handler/>, content);
-});
+AppComponent.defaultProps = {
+};
+
+export default AppComponent;
