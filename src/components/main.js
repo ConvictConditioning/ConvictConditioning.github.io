@@ -12,7 +12,7 @@ import {
   Col
 } from 'react-bootstrap'
 
-//let bg_big = require('../images/bg_big.jpg');
+let bg_big = require('../images/bg_big.jpg');
 let bg_logo_big = require('../images/bg_logo_big.png');
 let btn_download_normal = require('../images/btn_download_normal.png');
 let logo = require('../images/logo_small.png');
@@ -88,7 +88,7 @@ class AppComponent extends React.Component {
         </Navbar>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
-            style={{backgroundImage:'url(../images/bg_big.jpg)',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
+            style={{backgroundImage:'url('+bg_big+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
             <Row>
               <Col md={4} mdOffset={4}>
                 <img src={bg_logo_big} style={{marginTop:'160px',marginBottom:'160px',width:'100%',height:'100%'}}/>
