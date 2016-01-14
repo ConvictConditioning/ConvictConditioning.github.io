@@ -67,7 +67,6 @@ i18next.init({
 });
 class AppComponent extends React.Component {
   render() {
-    const bg_image_url = '../images/bg_big.jpg';
     return (
       <div className='index'>
         <Navbar style={{marginBottom:0}}>
@@ -89,7 +88,7 @@ class AppComponent extends React.Component {
         </Navbar>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
-            style={{backgroundImage:'url('+bg_image_url+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
+            style={{backgroundImage:'url(../images/bg_big.jpg)',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
             <Row>
               <Col md={4} mdOffset={4}>
                 <img src={bg_logo_big} style={{marginTop:'160px',marginBottom:'160px',width:'100%',height:'100%'}}/>
