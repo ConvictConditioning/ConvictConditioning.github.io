@@ -11,15 +11,16 @@ import {
   Row,
   Col
 } from 'react-bootstrap'
+import LanguageDetector from 'i18next-browser-languagedetector/lib';
 
 let bg_big = require('../images/bg_big.jpg');
 let bg_logo_big = require('../images/bg_logo_big.png');
 let btn_download_normal = require('../images/btn_download_normal.png');
 let logo = require('../images/logo_small.png');
-//let cn_normal = require('../images/language_china_normal.png');
+let cn_normal = require('../images/language_china_normal.png');
 let cn_selected = require('../images/language_china_selected.png');
 let en_normal = require('../images/language_en_normal.png');
-//let en_selected = require('../images/language_en_selected.png');
+let en_selected = require('../images/language_en_selected.png');
 
 let x = require('../images/x.png');
 let a = require('../images/posture_a.png');
@@ -38,34 +39,51 @@ let footer_ico_mail = require('../images/footer_ico_mail.png');
 let footer_ico_weibo = require('../images/footer_ico_weibo.png');
 let footer_ico_zhifubao = require('../images/footer_ico_zhifubao.png');
 
-i18next.init({
-  lng: 'zh',
-  resources: {
-    en: {
-      translation: {
-        'key': 'hello world',
-        'home': 'Home',
-        'about': 'About',
-        'download': 'Download',
-        'contact_us': 'Contact us',
-        'sub_title': '',
-        'come_on_no_give_up': 'Come on!Don\'t give up!'
-      }
-    },
-    zh: {
-      translation: {
-        'key': '你好 中国',
-        'home': '首页',
-        'about': '关于',
-        'download': '下载',
-        'contact_us': '联系我们',
-        'sub_title': '用失传的技艺练就强大的生存能力',
-        'come_on_no_give_up': '加油! 别放弃! '
+i18next
+  .use(LanguageDetector)
+  .init({
+    fallbackLng: 'en',
+    resources: {
+      en: {
+        translation: {
+          'key': 'hello world',
+          'home': 'Home',
+          'about': 'About',
+          'download': 'Download',
+          'contact_us': 'Contact us',
+          'sub_title': '',
+          'come_on_no_give_up': 'Come on!Don\'t give up!'
+        }
+      },
+      zh: {
+        translation: {
+          'key': '你好 中国',
+          'home': '首页',
+          'about': '关于',
+          'download': '下载',
+          'contact_us': '联系我们',
+          'sub_title': '用失传的技艺练就强大的生存能力',
+          'come_on_no_give_up': '加油! 别放弃! '
+        }
       }
     }
-  }
-});
+  });
 class AppComponent extends React.Component {
+  constructor(){
+    super();
+    this.state = {
+      lng:''
+    }
+  }
+  selectLng(key){
+    var self = this;
+    i18next.changeLanguage(key, (err, t) => {
+      // resources have been loaded
+      console.log(err,t);
+      self.setState({lng:key});
+
+    });
+  }
   render() {
     return (
       <div className='index'>
@@ -81,9 +99,9 @@ class AppComponent extends React.Component {
             <NavItem eventKey={2} href='#'>{i18next.t('download')}</NavItem>
             <NavItem eventKey={2} href='#'>{i18next.t('contact_us')}</NavItem>
           </Nav>
-          <Nav pullRight>
-            <NavItem eventKey={1} href='#'><img src={cn_selected}/></NavItem>
-            <NavItem eventKey={2} href='#'><img src={en_normal}/></NavItem>
+          <Nav pullRight onSelect={this.selectLng.bind(this)}>
+            <NavItem eventKey={'zh'} href='#'><img src={this.state.lng === 'cn' ? cn_selected : cn_normal}/></NavItem>
+            <NavItem eventKey={'en'} href='#'><img src={this.state.lng === 'en' ? en_selected : en_normal}/></NavItem>
           </Nav>
         </Navbar>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
