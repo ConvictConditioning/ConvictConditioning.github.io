@@ -123,40 +123,48 @@ class AppComponent extends React.Component {
             </Row>
             <Row>
               <Col md={2} mdOffset={5} xs={6} xsOffset={3}><img src={btn_download_normal}
-                                                                 style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
+                                                                style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
             </Row>
           </div>
         </Grid>
         <Grid>
-          <Row style={{marginTop:'40px',marginBottom:'60px'}}>
+          <Row style={{marginTop:'40px'}}>
             <Col md={1} mdOffset={4} xs={1} xsOffset={3} style={{textAlign:'center'}}>
               <img src={x} className='x'/>
             </Col>
             <Col md={2} xs={4} style={{textAlign:'center'}}>
-                <text
-                  className='desc'>{i18next.t('come_on_no_give_up')}</text>
+              <text
+                className='desc'>{i18next.t('come_on_no_give_up')}</text>
 
             </Col>
             <Col md={1} mdOffset={0} xs={1} xsOffset={0} style={{textAlign:'center'}}>
               <img src={x} className='x'/>
             </Col>
           </Row>
-          <Row>
-            <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
-              <div style={{paddingTop:'100px',paddingBottom:'100px',padding:'60px'}}>
-                <img src={a}/>
-                <img src={b}/>
-                <img src={c}/>
-                <img src={d}/>
-                <img src={e}/>
-                <img src={f}/>
-              </div>
+          <Row className='posture'>
+            <Col md={1} mdOffset={3} xs={4} xsOffset={0}>
+              <img src={a}/>
+            </Col>
+            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
+              <img src={b}/>
+            </Col>
+            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
+              <img src={c}/>
+            </Col>
+            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
+              <img src={d}/>
+            </Col>
+            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
+              <img src={e}/>
+            </Col>
+            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
+              <img src={f}/>
             </Col>
           </Row>
         </Grid>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
-            style={{backgroundColor:'black',height:'620px'}}>
+            style={{backgroundColor:'black'}} className='download'>
             <Row>
               <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
                 <img src={bg_download} style={{width:'100%',height:'100%'}}/>
@@ -164,7 +172,7 @@ class AppComponent extends React.Component {
             </Row>
             <Row>
               <Col md={2} mdOffset={5} xs={6} xsOffset={3}><img src={btn_download_normal}
-                                                                 style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
+                                                                style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
               </Col>
             </Row>
           </div>

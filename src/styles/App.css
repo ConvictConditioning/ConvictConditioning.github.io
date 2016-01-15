@@ -14,6 +14,15 @@ body {
     height: 20px;
     width: 20px;
   }
+
+  .posture {
+    padding-top: 160px;
+    padding-bottom: 100px;
+  }
+
+  .download {
+    height: 620px;
+  }
 }
 
 /* 平板竖屏到横屏到常规屏幕 */
@@ -27,6 +36,15 @@ body {
     height: 20px;
     width: 20px;
   }
+
+  .posture {
+    padding-top: 160px;
+    padding-bottom: 100px;
+  }
+
+  .download {
+    height: 620px;
+  }
 }
 
 /* 手机横屏到平板竖屏 */
@@ -39,6 +57,15 @@ body {
     height: 12px;
     width: 12px;
   }
+
+  .posture {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .download {
+    height: 300px;
+  }
 }
 
 /* 手机横屏及更小屏幕 */
@@ -50,5 +77,14 @@ body {
   .x {
     height: 12px;
     width: 12px;
+  }
+
+  .posture {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .download {
+    height: 300px;
   }
 }
