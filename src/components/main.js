@@ -9,7 +9,9 @@ import {
   NavItem,
   Grid,
   Row,
-  Col
+  Col,
+  Modal,
+  Button
 } from 'react-bootstrap'
 import LanguageDetector from 'i18next-browser-languagedetector/lib';
 
@@ -38,6 +40,7 @@ let footer_ico_github = require('../images/footer_ico_github.png');
 let footer_ico_mail = require('../images/footer_ico_mail.png');
 let footer_ico_weibo = require('../images/footer_ico_weibo.png');
 let footer_ico_zhifubao = require('../images/footer_ico_zhifubao.png');
+let zhifubao_donte = require('../images/zhifubao_donte.png');
 
 i18next
   .use(LanguageDetector)
@@ -72,13 +75,22 @@ class AppComponent extends React.Component {
   constructor() {
     super();
     this.state = {
-      lng: i18next.language
+      lng: i18next.language,
+      showModal: false
     }
+  }
+
+  closeDonte() {
+    this.setState({showModal: false});
+  }
+
+  openDonte() {
+    this.setState({showModal: true});
   }
 
   selectLng(key) {
     var self = this;
-    i18next.changeLanguage(key, (err, t) => {
+    i18next.changeLanguage(key, () => {
       // resources have been loaded
       //console.log(err,t);
       self.setState({lng: key});
@@ -106,6 +118,12 @@ class AppComponent extends React.Component {
             <NavItem eventKey={'en'} href='#'><img src={this.state.lng === 'en' ? en_selected : en_normal}/></NavItem>
           </Nav>
         </Navbar>
+        <Modal show={this.state.showModal} onHide={this.closeDonte.bind(this)} bsSize='small'>
+          <Modal.Body>
+            <img src={zhifubao_donte}/>
+            <text>这是一款公益性质的App, 请我们喝杯咖啡让我们更有干劲吧!</text>
+          </Modal.Body>
+        </Modal>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
             style={{backgroundImage:'url('+bg_big+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
@@ -189,16 +207,21 @@ class AppComponent extends React.Component {
                 <img src={footer_ico_dribbble} style={{marginTop:'130px',textAlign:'center'}}/>
               </Col>
               <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <img src={footer_ico_github} style={{marginTop:'130px',textAlign:'center'}}/>
+                <a href='https://github.com/buhe'> <img src={footer_ico_github}
+                                                        style={{marginTop:'130px',textAlign:'center'}}/></a>
               </Col>
               <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <img src={footer_ico_mail} style={{marginTop:'130px',textAlign:'center'}}/>
+                <a href="mailto:bugu1986@126.com?subject=CC Support">
+                  <img src={footer_ico_mail} style={{marginTop:'130px',textAlign:'center'}}/>
+                </a>
               </Col>
               <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <img src={footer_ico_weibo} style={{marginTop:'130px',textAlign:'center'}}/>
+                <a href="http://weibo.com/u/5640438289">
+                  <img src={footer_ico_weibo} style={{marginTop:'130px',textAlign:'center'}}/>
+                </a>
               </Col>
               <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <img src={footer_ico_zhifubao} style={{marginTop:'130px',textAlign:'center'}}/>
+                <img src={footer_ico_zhifubao} style={{marginTop:'130px',textAlign:'center'}} onClick={this.openDonte.bind(this)}/>
               </Col>
             </Row>
           </div>
