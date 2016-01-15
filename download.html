@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <script type="text/javascript" src="assets/ua-parser.js"></script>
+  <script type="text/javascript">
+      var parser = new UAParser();
+      parser.setUA(window.navigator.userAgent);
+      var os = parser.getOS();
+      if(os.name === 'iOS'){
+        window.location = 'http://www.baidu.com';  //app store
+      }else if(os.name === 'Android'){
+        window.location = 'http://www.google.com';  //应用宝
+      }else{
+        //ignore
+      }
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

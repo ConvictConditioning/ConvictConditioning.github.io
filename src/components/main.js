@@ -14,6 +14,7 @@ import {
   Button
 } from 'react-bootstrap'
 import LanguageDetector from 'i18next-browser-languagedetector/lib';
+var UAParser = require('user-agent-parser');
 
 let bg_big = require('../images/bg_big.jpg');
 let bg_logo_big = require('../images/bg_logo_big.png');
@@ -42,6 +43,9 @@ let footer_ico_weibo = require('../images/footer_ico_weibo.png');
 let footer_ico_zhifubao = require('../images/footer_ico_zhifubao.png');
 let zhifubao_donte = require('../images/zhifubao_donte.png');
 let qr = require('../images/qr.png');
+
+var parser = new UAParser();
+parser.setUA(window.navigator.userAgent);
 
 i18next
   .use(LanguageDetector)
@@ -103,7 +107,14 @@ class AppComponent extends React.Component {
     //如果是ios 跳转到appstore
     //如果是android 跳转到应用宝
     //如果是pc 弹出二维码
-    this.openDownload();
+    //console.log(parser.getResult());
+    if(parser.getResult().os.name === 'iOS'){
+      window.location = 'http://www.baidu.com';  //app store
+    }else if(parser.getResult().os.name === 'Android'){
+      window.location = 'http://www.google.com';  //应用宝
+    }else{
+      this.openDownload(); //打开 /download.html 页面进行跳转
+    }
   }
 
   selectLng(key) {
