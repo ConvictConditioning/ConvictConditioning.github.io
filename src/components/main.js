@@ -51,8 +51,8 @@ i18next
           'about': 'About',
           'download': 'Download',
           'contact_us': 'Contact us',
-          'sub_title': '',
-          'come_on_no_give_up': 'Come on!Don\'t give up!'
+          'sub_title': 'Lost skills acquired strong ability', //FIXME
+          'come_on_no_give_up': 'Never Stop!'
         }
       },
       zh: {
@@ -69,21 +69,23 @@ i18next
     }
   });
 class AppComponent extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.state = {
-      lng:''
+      lng: i18next.language
     }
   }
-  selectLng(key){
+
+  selectLng(key) {
     var self = this;
     i18next.changeLanguage(key, (err, t) => {
       // resources have been loaded
-      console.log(err,t);
-      self.setState({lng:key});
+      //console.log(err,t);
+      self.setState({lng: key});
 
     });
   }
+
   render() {
     return (
       <div className='index'>
@@ -100,7 +102,7 @@ class AppComponent extends React.Component {
             <NavItem eventKey={2} href='#'>{i18next.t('contact_us')}</NavItem>
           </Nav>
           <Nav pullRight onSelect={this.selectLng.bind(this)}>
-            <NavItem eventKey={'zh'} href='#'><img src={this.state.lng === 'cn' ? cn_selected : cn_normal}/></NavItem>
+            <NavItem eventKey={'zh'} href='#'><img src={this.state.lng === 'zh' ? cn_selected : cn_normal}/></NavItem>
             <NavItem eventKey={'en'} href='#'><img src={this.state.lng === 'en' ? en_selected : en_normal}/></NavItem>
           </Nav>
         </Navbar>
@@ -108,35 +110,39 @@ class AppComponent extends React.Component {
           <div
             style={{backgroundImage:'url('+bg_big+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
             <Row>
-              <Col md={4} mdOffset={4}>
+              <Col md={4} mdOffset={4} xs={10} xsOffset={1}>
                 <img src={bg_logo_big} style={{marginTop:'160px',marginBottom:'160px',width:'100%',height:'100%'}}/>
               </Col>
             </Row>
             <Row>
-              <Col md={4} mdOffset={4}>
+              <Col md={4} mdOffset={4} xs={10} xsOffset={1} style={{textAlign:'center'}}>
                 <text
-                  style={{color:'white',fontSize:'20px',letterSpacing:'4px',paddingLeft:'80px',paddingRight:'80px'}}>{i18next.t('sub_title')}</text>
+                  className='desc'
+                  style={{color:'white'}}>{i18next.t('sub_title')}</text>
               </Col>
             </Row>
             <Row>
-              <Col md={4} mdOffset={4}><img src={btn_download_normal}
-                                            style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px',paddingLeft:'120px',paddingRight:'120px'}}/></Col>
+              <Col md={2} mdOffset={5} xs={6} xsOffset={3}><img src={btn_download_normal}
+                                                                 style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
             </Row>
           </div>
         </Grid>
         <Grid>
-          <Row>
-            <Col md={4} mdOffset={4}>
-              <div style={{marginTop:'40px',marginBottom:'60px'}}>
-                <img src={x} style={{width:'20px',height:'20px'}}/>
+          <Row style={{marginTop:'40px',marginBottom:'60px'}}>
+            <Col md={1} mdOffset={4} xs={1} xsOffset={3} style={{textAlign:'center'}}>
+              <img src={x} className='x'/>
+            </Col>
+            <Col md={2} xs={4} style={{textAlign:'center'}}>
                 <text
-                  style={{fontSize:'20px',letterSpacing:'4px',margin:'40px'}}>{i18next.t('come_on_no_give_up')}</text>
-                <img src={x} style={{width:'20px',height:'20px'}}/>
-              </div>
+                  className='desc'>{i18next.t('come_on_no_give_up')}</text>
+
+            </Col>
+            <Col md={1} mdOffset={0} xs={1} xsOffset={0} style={{textAlign:'center'}}>
+              <img src={x} className='x'/>
             </Col>
           </Row>
           <Row>
-            <Col md={8} mdOffset={2}>
+            <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
               <div style={{paddingTop:'100px',paddingBottom:'100px',padding:'60px'}}>
                 <img src={a}/>
                 <img src={b}/>
@@ -152,33 +158,39 @@ class AppComponent extends React.Component {
           <div
             style={{backgroundColor:'black',height:'620px'}}>
             <Row>
-              <Col md={8} mdOffset={2}>
-                <img src={bg_download}/>
+              <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
+                <img src={bg_download} style={{width:'100%',height:'100%'}}/>
               </Col>
             </Row>
             <Row>
-              <Col md={4} mdOffset={4}><img src={btn_download_normal}
-                                            style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px',paddingLeft:'120px',paddingRight:'120px'}}/>
+              <Col md={2} mdOffset={5} xs={6} xsOffset={3}><img src={btn_download_normal}
+                                                                 style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
               </Col>
             </Row>
           </div>
           <Row>
-            <Col md={8} mdOffset={2}>
-              <img src={bg_logo} style={{marginTop:'70px',marginBottom:'70px'}}/>
+            <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
+              <img src={bg_logo} style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
             </Col>
           </Row>
 
           <div
             style={{backgroundColor:'black',height:'300px'}}>
             <Row>
-              <Col md={6} mdOffset={3}>
-                <div style={{paddingTop:'100px',paddingBottom:'100px',paddingLeft:'80px',paddingRight:'80px'}}>
-                  <img src={footer_ico_dribbble} style={{margin:'30px'}}/>
-                  <img src={footer_ico_github} style={{margin:'30px'}}/>
-                  <img src={footer_ico_mail} style={{margin:'30px'}}/>
-                  <img src={footer_ico_weibo} style={{margin:'30px'}}/>
-                  <img src={footer_ico_zhifubao} style={{margin:'30px'}}/>
-                </div>
+              <Col md={1} mdOffset={4} xs={1} xsOffset={0}>
+                <img src={footer_ico_dribbble} style={{marginTop:'130px',textAlign:'center'}}/>
+              </Col>
+              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
+                <img src={footer_ico_github} style={{marginTop:'130px',textAlign:'center'}}/>
+              </Col>
+              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
+                <img src={footer_ico_mail} style={{marginTop:'130px',textAlign:'center'}}/>
+              </Col>
+              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
+                <img src={footer_ico_weibo} style={{marginTop:'130px',textAlign:'center'}}/>
+              </Col>
+              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
+                <img src={footer_ico_zhifubao} style={{marginTop:'130px',textAlign:'center'}}/>
               </Col>
             </Row>
           </div>

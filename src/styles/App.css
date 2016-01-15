@@ -4,3 +4,51 @@ body {
   /*background: #222;*/
 }
 
+@media (min-width: 1200px) {
+  .desc {
+    letter-spacing: 4px;
+    font-size: 20px;
+  }
+
+  .x {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+/* 平板竖屏到横屏到常规屏幕 */
+@media (min-width: 768px) and (max-width: 979px) {
+  .desc {
+    letter-spacing: 4px;
+    font-size: 20px;
+  }
+
+  .x {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+/* 手机横屏到平板竖屏 */
+@media (max-width: 767px) {
+  .desc {
+    font-size: 12px;
+  }
+
+  .x {
+    height: 12px;
+    width: 12px;
+  }
+}
+
+/* 手机横屏及更小屏幕 */
+@media (max-width: 480px) {
+  .desc {
+    font-size: 12px;
+  }
+
+  .x {
+    height: 12px;
+    width: 12px;
+  }
+}
