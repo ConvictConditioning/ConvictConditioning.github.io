@@ -41,6 +41,7 @@ let footer_ico_mail = require('../images/footer_ico_mail.png');
 let footer_ico_weibo = require('../images/footer_ico_weibo.png');
 let footer_ico_zhifubao = require('../images/footer_ico_zhifubao.png');
 let zhifubao_donte = require('../images/zhifubao_donte.png');
+let qr = require('../images/qr.png');
 
 i18next
   .use(LanguageDetector)
@@ -143,7 +144,7 @@ class AppComponent extends React.Component {
         </Modal>
         <Modal show={this.state.showDownloadModal} onHide={this.closeDownload.bind(this)} bsSize='small'>
           <Modal.Body>
-            <img src={zhifubao_donte}/>
+            <img src={qr}/>
           </Modal.Body>
         </Modal>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
