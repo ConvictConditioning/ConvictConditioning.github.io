@@ -76,7 +76,8 @@ class AppComponent extends React.Component {
     super();
     this.state = {
       lng: i18next.language,
-      showModal: false
+      showModal: false,
+      showDownloadModal: false,
     }
   }
 
@@ -86,6 +87,22 @@ class AppComponent extends React.Component {
 
   openDonte() {
     this.setState({showModal: true});
+  }
+
+  closeDownload() {
+    this.setState({showDownloadModal: false});
+  }
+
+  openDownload() {
+    this.setState({showDownloadModal: true});
+  }
+
+  download() {
+    //FIXME
+    //如果是ios 跳转到appstore
+    //如果是android 跳转到应用宝
+    //如果是pc 弹出二维码
+    this.openDownload();
   }
 
   selectLng(key) {
@@ -124,6 +141,11 @@ class AppComponent extends React.Component {
             <text>这是一款公益性质的App, 请我们喝杯咖啡让我们更有干劲吧!</text>
           </Modal.Body>
         </Modal>
+        <Modal show={this.state.showDownloadModal} onHide={this.closeDownload.bind(this)} bsSize='small'>
+          <Modal.Body>
+            <img src={zhifubao_donte}/>
+          </Modal.Body>
+        </Modal>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
             style={{backgroundImage:'url('+bg_big+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
@@ -140,8 +162,9 @@ class AppComponent extends React.Component {
               </Col>
             </Row>
             <Row>
-              <Col md={2} mdOffset={5} xs={6} xsOffset={3}><img src={btn_download_normal}
-                                                                style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
+              <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
+                <img src={btn_download_normal}  onClick={this.download.bind(this)}
+                     style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
             </Row>
           </div>
         </Grid>
@@ -189,8 +212,9 @@ class AppComponent extends React.Component {
               </Col>
             </Row>
             <Row>
-              <Col md={2} mdOffset={5} xs={6} xsOffset={3}><img src={btn_download_normal}
-                                                                style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
+              <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
+                <img src={btn_download_normal}  onClick={this.download.bind(this)}
+                     style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
               </Col>
             </Row>
           </div>
@@ -221,7 +245,8 @@ class AppComponent extends React.Component {
                 </a>
               </Col>
               <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <img src={footer_ico_zhifubao} style={{marginTop:'130px',textAlign:'center'}} onClick={this.openDonte.bind(this)}/>
+                <img src={footer_ico_zhifubao} style={{marginTop:'130px',textAlign:'center'}}
+                     onClick={this.openDonte.bind(this)}/>
               </Col>
             </Row>
           </div>
