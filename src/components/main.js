@@ -103,11 +103,6 @@ class AppComponent extends React.Component {
   }
 
   download() {
-    //FIXME
-    //如果是ios 跳转到appstore
-    //如果是android 跳转到应用宝
-    //如果是pc 弹出二维码
-    //console.log(parser.getResult());
     if(parser.getResult().os.name === 'iOS'){
       window.location = 'https://itunes.apple.com/cn/app/jian-shen-fan/id1031156637?l=en&mt=8';  //app store
     }else if(parser.getResult().os.name === 'Android'){
