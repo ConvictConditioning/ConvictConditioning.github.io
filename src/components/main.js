@@ -249,32 +249,29 @@ class AppComponent extends React.Component {
             </Col>
           </Row>
 
-          <div
-            style={{backgroundColor:'black',height:'300px'}}>
-            <Row>
-              <Col md={1} mdOffset={4} xs={1} xsOffset={0}>
-                <img src={footer_ico_dribbble} style={{marginTop:'130px',textAlign:'center'}}/>
-              </Col>
-              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <a href='https://github.com/buhe'> <img src={footer_ico_github}
-                                                        style={{marginTop:'130px',textAlign:'center'}}/></a>
-              </Col>
-              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <a href="mailto:bugu1986@126.com?subject=CC Support">
-                  <img src={footer_ico_mail} style={{marginTop:'130px',textAlign:'center'}}/>
-                </a>
-              </Col>
-              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <a href="http://weibo.com/u/5640438289">
-                  <img src={footer_ico_weibo} style={{marginTop:'130px',textAlign:'center'}}/>
-                </a>
-              </Col>
-              <Col md={1} mdOffset={0} xs={1} xsOffset={1}>
-                <img src={footer_ico_zhifubao} style={{marginTop:'130px',textAlign:'center'}}
-                     onClick={this.openDonte.bind(this)}/>
-              </Col>
-            </Row>
-          </div>
+          <Row style={{backgroundColor:'black',height:'300px'}} className='foot' >
+            <Col md={2} mdOffset={0} xs={2} xsOffset={0}>
+              <img src={footer_ico_dribbble} className='footIcon' style={{marginTop:'130px',textAlign:'center'}}/>
+            </Col>
+            <Col md={2} mdOffset={0} xs={2} xsOffset={0}>
+              <a href='https://github.com/buhe'>
+                <img src={footer_ico_github} className='footIcon' style={{marginTop:'130px',textAlign:'center'}}/></a>
+            </Col>
+            <Col md={2} mdOffset={0} xs={2} xsOffset={0}>
+              <a href="mailto:bugu1986@126.com?subject=CC Support">
+                <img src={footer_ico_mail} className='footIcon' style={{marginTop:'130px',textAlign:'center'}}/>
+              </a>
+            </Col>
+            <Col md={2} mdOffset={0} xs={2} xsOffset={0}>
+              <a href="http://weibo.com/u/5640438289">
+                <img src={footer_ico_weibo} className='footIcon' style={{marginTop:'130px',textAlign:'center'}}/>
+              </a>
+            </Col>
+            <Col md={2} mdOffset={0} xs={2} xsOffset={0}>
+              <img src={footer_ico_zhifubao} className='footIcon' style={{marginTop:'130px',textAlign:'center'}}
+                   onClick={this.openDonte.bind(this)}/>
+            </Col>
+          </Row>
         </Grid>
       </div>
     );
