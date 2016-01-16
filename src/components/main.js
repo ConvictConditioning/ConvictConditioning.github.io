@@ -10,8 +10,7 @@ import {
   Grid,
   Row,
   Col,
-  Modal,
-  Button
+  Modal
 } from 'react-bootstrap'
 import LanguageDetector from 'i18next-browser-languagedetector/lib';
 var UAParser = require('user-agent-parser');
@@ -60,7 +59,13 @@ i18next
           'download': 'Download',
           'contact_us': 'Contact us',
           'sub_title': 'Lost skills acquired strong ability', //FIXME
-          'come_on_no_give_up': 'Never Stop!'
+          'come_on_no_give_up': 'Never Stop!',
+          'pushUp': 'Push Up',
+          'deep': 'Deep',
+          'pullUp': 'Pull Up',
+          'leg': 'Leg',
+          'bridge': 'Bridge',
+          'handstand': 'Handstand'
         }
       },
       zh: {
@@ -71,7 +76,13 @@ i18next
           'download': '下载',
           'contact_us': '联系我们',
           'sub_title': '用失传的技艺练就强大的生存能力',
-          'come_on_no_give_up': '加油! 别放弃! '
+          'come_on_no_give_up': '加油! 别放弃! ',
+          'pushUp': '俯卧撑',
+          'deep': '深蹲',
+          'pullUp': '引体向上',
+          'leg': '举腿',
+          'bridge': '桥',
+          'handstand': '倒立撑'
         }
       }
     }
@@ -82,7 +93,7 @@ class AppComponent extends React.Component {
     this.state = {
       lng: i18next.language,
       showModal: false,
-      showDownloadModal: false,
+      showDownloadModal: false
     }
   }
 
@@ -103,11 +114,11 @@ class AppComponent extends React.Component {
   }
 
   download() {
-    if(parser.getResult().os.name === 'iOS'){
+    if (parser.getResult().os.name === 'iOS') {
       window.location = 'https://itunes.apple.com/cn/app/jian-shen-fan/id1031156637?l=en&mt=8';  //app store
-    }else if(parser.getResult().os.name === 'Android'){
+    } else if (parser.getResult().os.name === 'Android') {
       window.location = 'http://218.30.98.14/dd.myapp.com/16891/57D18E237AB9BD450BCAF73228FEBF23.apk';  //应用宝
-    }else{
+    } else {
       this.openDownload(); //打开 /download.html 页面进行跳转
     }
   }
@@ -170,7 +181,7 @@ class AppComponent extends React.Component {
             </Row>
             <Row>
               <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
-                <img src={btn_download_normal}  onClick={this.download.bind(this)}
+                <img src={btn_download_normal} onClick={this.download.bind(this)}
                      style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
             </Row>
           </div>
@@ -190,25 +201,32 @@ class AppComponent extends React.Component {
             </Col>
           </Row>
           <Row className='posture'>
-            <Col md={1} mdOffset={3} xs={4} xsOffset={0}>
-              <img src={a}/>
+            <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
+              <img src={a}/><br />
+              <text>{i18next.t('pushUp')}</text>
             </Col>
-            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
-              <img src={b}/>
+            <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
+              <img src={b}/><br />
+              <text>{i18next.t('pushUp')}</text>
             </Col>
-            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
-              <img src={c}/>
+            <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
+              <img src={c}/><br />
+              <text>{i18next.t('pushUp')}</text>
             </Col>
-            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
-              <img src={d}/>
+            <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
+              <img src={d}/><br />
+              <text>{i18next.t('pushUp')}</text>
             </Col>
-            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
-              <img src={e}/>
+            <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
+              <img src={e}/><br />
+              <text>{i18next.t('pushUp')}</text>
             </Col>
-            <Col md={1} mdOffset={0} xs={4} xsOffset={0}>
-              <img src={f}/>
+            <Col md={2} mdOffset={0} xs={4} xsOffset={0} style={{textAlign:'center'}}>
+              <img src={f}/><br />
+              <text>{i18next.t('pushUp')}</text>
             </Col>
           </Row>
+
         </Grid>
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
@@ -220,7 +238,7 @@ class AppComponent extends React.Component {
             </Row>
             <Row>
               <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
-                <img src={btn_download_normal}  onClick={this.download.bind(this)}
+                <img src={btn_download_normal} onClick={this.download.bind(this)}
                      style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
               </Col>
             </Row>
