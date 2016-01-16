@@ -143,10 +143,10 @@ class AppComponent extends React.Component {
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
-            <NavItem eventKey={1} href='#'>{i18next.t('home')}</NavItem>
-            <NavItem eventKey={2} href='#'>{i18next.t('about')}</NavItem>
-            <NavItem eventKey={2} href='#'>{i18next.t('download')}</NavItem>
-            <NavItem eventKey={2} href='#'>{i18next.t('contact_us')}</NavItem>
+            <NavItem eventKey={1} href='#home'>{i18next.t('home')}</NavItem>
+            <NavItem eventKey={2} href='#about'>{i18next.t('about')}</NavItem>
+            <NavItem eventKey={2} href='#download'>{i18next.t('download')}</NavItem>
+            <NavItem eventKey={2} href='#about'>{i18next.t('contact_us')}</NavItem>
           </Nav>
           <Nav pullRight onSelect={this.selectLng.bind(this)}>
             <NavItem eventKey={'zh'} href='#'><img src={this.state.lng === 'zh' ? cn_selected : cn_normal}/></NavItem>
@@ -164,6 +164,7 @@ class AppComponent extends React.Component {
             <img src={qr}/>
           </Modal.Body>
         </Modal>
+        <a id='home' />
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
             style={{backgroundImage:'url('+bg_big+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
@@ -207,27 +208,28 @@ class AppComponent extends React.Component {
             </Col>
             <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
               <img src={b}/><br />
-              <text>{i18next.t('pushUp')}</text>
+              <text>{i18next.t('deep')}</text>
             </Col>
             <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
               <img src={c}/><br />
-              <text>{i18next.t('pushUp')}</text>
+              <text>{i18next.t('pullUp')}</text>
             </Col>
             <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
               <img src={d}/><br />
-              <text>{i18next.t('pushUp')}</text>
+              <text>{i18next.t('leg')}</text>
             </Col>
             <Col md={2} mdOffset={0} xs={4} xsOffset={0} className='line' style={{textAlign:'center'}}>
               <img src={e}/><br />
-              <text>{i18next.t('pushUp')}</text>
+              <text>{i18next.t('bridge')}</text>
             </Col>
             <Col md={2} mdOffset={0} xs={4} xsOffset={0} style={{textAlign:'center'}}>
               <img src={f}/><br />
-              <text>{i18next.t('pushUp')}</text>
+              <text>{i18next.t('handstand')}</text>
             </Col>
           </Row>
 
         </Grid>
+        <a id='download' />
         <Grid fluid={true} style={{paddingRight:0,paddingLeft:0}}>
           <div
             style={{backgroundColor:'black'}} className='download'>
@@ -243,6 +245,7 @@ class AppComponent extends React.Component {
               </Col>
             </Row>
           </div>
+          <a id='about' />
           <Row>
             <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
               <img src={bg_logo} style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
