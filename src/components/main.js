@@ -115,7 +115,7 @@ class AppComponent extends React.Component {
 
   download() {
     if (parser.getResult().os.name === 'iOS') {
-      window.location = 'https://itunes.apple.com/cn/app/jian-shen-fan/id1031156637?l=en&mt=8';  //app store
+      //window.location = 'https://itunes.apple.com/cn/app/jian-shen-fan/id1031156637?l=en&mt=8';  //app store
     } else if (parser.getResult().os.name === 'Android') {
       window.location = 'http://218.30.98.14/dd.myapp.com/16891/57D18E237AB9BD450BCAF73228FEBF23.apk';  //应用宝
     } else {
@@ -155,7 +155,7 @@ class AppComponent extends React.Component {
         </Navbar>
         <Modal show={this.state.showModal} onHide={this.closeDonte.bind(this)} bsSize='small'>
           <Modal.Body>
-            <img src={zhifubao_donte}/>
+            <img src={zhifubao_donte}/><br />
             <text>这是一款公益性质的App, 请我们喝杯咖啡让我们更有干劲吧!</text>
           </Modal.Body>
         </Modal>
