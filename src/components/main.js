@@ -115,9 +115,9 @@ class AppComponent extends React.Component {
 
   download() {
     if (parser.getResult().os.name === 'iOS') {
-      //window.location = 'https://itunes.apple.com/cn/app/jian-shen-fan/id1031156637?l=en&mt=8';  //app store
+      window.location = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.prisonerfitness&g_f=991653';  //微推广
     } else if (parser.getResult().os.name === 'Android') {
-      window.location = 'http://218.30.98.14/dd.myapp.com/16891/57D18E237AB9BD450BCAF73228FEBF23.apk';  //应用宝
+      window.location = 'http://a.app.qq.com/o/simple.jsp?pkgname=com.prisonerfitness&g_f=991653';  //微推广
     } else {
       this.openDownload(); //打开 /download.html 页面进行跳转
     }
