@@ -160,7 +160,7 @@ class AppComponent extends React.Component {
           </Modal.Body>
         </Modal>
         <Modal show={this.state.showDownloadModal} onHide={this.closeDownload.bind(this)} bsSize='small'>
-          <Modal.Body>
+          <Modal.Body style={{backgroundColor:'black'}}>
             <img src={qr}/>
           </Modal.Body>
         </Modal>

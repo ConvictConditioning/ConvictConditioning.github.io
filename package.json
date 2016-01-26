@@ -66,8 +66,11 @@
   "dependencies": {
     "core-js": "^2.0.0",
     "i18next": "^2.0.20",
+    "i18next-browser-languagedetector": "0.0.14",
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-bootstrap": "^0.28.2",
+    "react-dom": "^0.14.0",
+    "user-agent-parser": "^0.6.0"
   }
 }
