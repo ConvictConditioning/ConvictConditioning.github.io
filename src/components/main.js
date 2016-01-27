@@ -55,7 +55,7 @@ i18next
           'about': 'About',
           'download': 'Download',
           'contact_us': 'Contact us',
-          'sub_title': 'Lost skills acquired strong ability', //FIXME
+          'sub_title': 'Convict Conditioning, Lost skills acquired strong ability', //FIXME
           'come_on_no_give_up': 'Never Stop!',
           'pushUp': 'PUSH UP',
           'deep': 'SQUAT',
@@ -72,7 +72,7 @@ i18next
           'about': '关于',
           'download': '下载',
           'contact_us': '联系我们',
-          'sub_title': '用失传的技艺练就强大的生存能力',
+          'sub_title': '《专业囚徒健身》用失传的技艺练就强大的生存能力',
           'come_on_no_give_up': '加油! 别放弃! ',
           'pushUp': '俯卧撑',
           'deep': '深蹲',
