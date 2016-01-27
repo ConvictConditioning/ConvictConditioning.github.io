@@ -16,9 +16,6 @@ import LanguageDetector from 'i18next-browser-languagedetector/lib';
 var UAParser = require('user-agent-parser');
 
 let bg_big = require('../images/bg_big.jpg');
-let bg_logo_big = require('../images/bg_logo_big.png');
-let btn_download_normal = require('../images/btn_download_normal.png');
-let logo = require('../images/logo_small.png');
 let cn_normal = require('../images/language_china_normal.png');
 let cn_selected = require('../images/language_china_selected.png');
 let en_normal = require('../images/language_en_normal.png');
@@ -33,7 +30,6 @@ let e = require('../images/posture_e.png');
 let f = require('../images/posture_f.png');
 
 let bg_download = require('../images/bg_download.png');
-let bg_logo = require('../images/bg_logo.png');
 
 let footer_ico_dribbble = require('../images/footer_ico_dribbble.png');
 let footer_ico_github = require('../images/footer_ico_github.png');
@@ -42,7 +38,8 @@ let footer_ico_weibo = require('../images/footer_ico_weibo.png');
 let footer_ico_zhifubao = require('../images/footer_ico_zhifubao.png');
 let zhifubao_donte = require('../images/zhifubao_donte.png');
 let qr = require('../images/qr.png');
-
+var images_zh = require('../images/zh/index');
+var images_en = require('../images/en/index');
 var parser = new UAParser();
 parser.setUA(window.navigator.userAgent);
 
@@ -60,12 +57,12 @@ i18next
           'contact_us': 'Contact us',
           'sub_title': 'Lost skills acquired strong ability', //FIXME
           'come_on_no_give_up': 'Never Stop!',
-          'pushUp': 'Push Up',
-          'deep': 'Deep',
-          'pullUp': 'Pull Up',
-          'leg': 'Leg',
-          'bridge': 'Bridge',
-          'handstand': 'Handstand'
+          'pushUp': 'PUSH UP',
+          'deep': 'SQUAT',
+          'pullUp': 'PULL UP',
+          'leg': 'LEG RAISE',
+          'bridge': 'BRIDGE',
+          'handstand': 'HANDSTAND'
         }
       },
       zh: {
@@ -93,7 +90,8 @@ class AppComponent extends React.Component {
     this.state = {
       lng: i18next.language,
       showModal: false,
-      showDownloadModal: false
+      showDownloadModal: false,
+      images : i18next.language.startsWith('zh') ? images_zh : images_en
     }
   }
 
@@ -128,7 +126,7 @@ class AppComponent extends React.Component {
     i18next.changeLanguage(key, () => {
       // resources have been loaded
       //console.log(err,t);
-      self.setState({lng: key});
+      self.setState({lng: key,images:key.startsWith('zh') ? images_zh : images_en});
 
     });
   }
@@ -139,7 +137,7 @@ class AppComponent extends React.Component {
         <Navbar style={{marginBottom:0}}>
           <Navbar.Header>
             <Navbar.Brand>
-              <img src={logo}/>
+              <img src={this.state.images.logo}/>
             </Navbar.Brand>
           </Navbar.Header>
           <Nav>
@@ -149,8 +147,8 @@ class AppComponent extends React.Component {
             <NavItem eventKey={2} href='#about'>{i18next.t('contact_us')}</NavItem>
           </Nav>
           <Nav pullRight onSelect={this.selectLng.bind(this)}>
-            <NavItem eventKey={'zh'} href='#'><img src={this.state.lng === 'zh' ? cn_selected : cn_normal}/></NavItem>
-            <NavItem eventKey={'en'} href='#'><img src={this.state.lng === 'en' ? en_selected : en_normal}/></NavItem>
+            <NavItem eventKey={'zh'} href='#'><img src={this.state.lng.startsWith('zh') ? cn_selected : cn_normal}/></NavItem>
+            <NavItem eventKey={'en'} href='#'><img src={this.state.lng.startsWith('en') ? en_selected : en_normal}/></NavItem>
           </Nav>
         </Navbar>
         <Modal show={this.state.showModal} onHide={this.closeDonte.bind(this)} bsSize='small'>
@@ -170,7 +168,7 @@ class AppComponent extends React.Component {
             style={{backgroundImage:'url('+bg_big+')',backgroundRepeat:'no-repeat',backgroundSize:'100% 100%'}}>
             <Row>
               <Col md={4} mdOffset={4} xs={10} xsOffset={1}>
-                <img src={bg_logo_big} style={{marginTop:'160px',marginBottom:'160px',width:'100%',height:'100%'}}/>
+                <img src={this.state.images.bg_logo_big} style={{marginTop:'160px',marginBottom:'160px',width:'100%',height:'100%'}}/>
               </Col>
             </Row>
             <Row>
@@ -182,7 +180,7 @@ class AppComponent extends React.Component {
             </Row>
             <Row>
               <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
-                <img src={btn_download_normal} onClick={this.download.bind(this)}
+                <img src={this.state.images.btn_download_normal} onClick={this.download.bind(this)}
                      style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
             </Row>
           </div>
@@ -240,7 +238,7 @@ class AppComponent extends React.Component {
             </Row>
             <Row>
               <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
-                <img src={btn_download_normal} onClick={this.download.bind(this)}
+                <img src={this.state.images.btn_download_normal} onClick={this.download.bind(this)}
                      style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
               </Col>
             </Row>
@@ -248,7 +246,7 @@ class AppComponent extends React.Component {
           <a id='about' />
           <Row>
             <Col md={8} mdOffset={2} xs={12} xsOffset={0}>
-              <img src={bg_logo} style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
+              <img src={this.state.images.bg_logo} style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
             </Col>
           </Row>
 
