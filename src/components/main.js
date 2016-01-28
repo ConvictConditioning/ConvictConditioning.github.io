@@ -38,6 +38,8 @@ let footer_ico_weibo = require('../images/footer_ico_weibo.png');
 let footer_ico_zhifubao = require('../images/footer_ico_zhifubao.png');
 let zhifubao_donte = require('../images/zhifubao_donte.png');
 let qr = require('../images/qr.png');
+let apple = require('../images/apple.png');
+let play = require('../images/google_play.png');
 var images_zh = require('../images/zh/index');
 var images_en = require('../images/en/index');
 var parser = new UAParser();
@@ -132,6 +134,28 @@ class AppComponent extends React.Component {
   }
 
   render() {
+
+    var downloadButton;
+    if(this.state.lng.startsWith('zh')){
+      downloadButton = <Row><Col md={2} mdOffset={5} xs={6} xsOffset={3}>
+                        <img src={this.state.images.btn_download_normal} onClick={this.download.bind(this)}
+                             style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
+                      </Col></Row>
+    }else{
+      downloadButton =
+      <Row style={{paddingTop:'70px',paddingBottom:'70px'}}>
+        <Col md={2} mdOffset={4} xs={4} xsOffset={2}>
+          <img src={apple} onClick={this.download.bind(this)}
+               style={{width:'100%',height:'100%',}}/>
+        </Col>
+        <Col md={2} mdOffset={0} xs={4} xsOffset={0}>
+          <img src={play} onClick={this.download.bind(this)}
+               style={{width:'100%',height:'100%',}}/>
+        </Col>
+      </Row>
+
+    }
+
     return (
       <div className='index'>
         <Navbar style={{marginBottom:0}}>
@@ -178,11 +202,7 @@ class AppComponent extends React.Component {
                   style={{color:'white'}}>{i18next.t('sub_title')}</text>
               </Col>
             </Row>
-            <Row>
-              <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
-                <img src={this.state.images.btn_download_normal} onClick={this.download.bind(this)}
-                     style={{width:'100%',height:'100%',marginTop:'40px',marginBottom:'60px'}}/></Col>
-            </Row>
+            {downloadButton}
           </div>
         </Grid>
         <Grid>
@@ -236,12 +256,7 @@ class AppComponent extends React.Component {
                 <img src={bg_download} style={{width:'100%',height:'100%'}}/>
               </Col>
             </Row>
-            <Row>
-              <Col md={2} mdOffset={5} xs={6} xsOffset={3}>
-                <img src={this.state.images.btn_download_normal} onClick={this.download.bind(this)}
-                     style={{width:'100%',height:'100%',marginTop:'70px',marginBottom:'70px'}}/>
-              </Col>
-            </Row>
+              {downloadButton}
           </div>
           <a id='about' />
           <Row>
