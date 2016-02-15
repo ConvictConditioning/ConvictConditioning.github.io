@@ -124,7 +124,7 @@ class AppComponent extends React.Component {
   }
 
   downloadFromAppStore(){
-    window.location = 'https://play.google.com/store/apps/details?id=com.prisonerfitness';
+    window.location = 'https://itunes.apple.com/us/app/convict-conditioning-pro/id1080567031?l=zh&ls=1&mt=8';
   }
 
   downloadFromPlay(){
