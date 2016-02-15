@@ -123,6 +123,14 @@ class AppComponent extends React.Component {
     }
   }
 
+  downloadFromAppStore(){
+    window.location = 'https://play.google.com/store/apps/details?id=com.prisonerfitness';
+  }
+
+  downloadFromPlay(){
+    window.location = 'https://play.google.com/store/apps/details?id=com.prisonerfitness';
+  }
+
   selectLng(key) {
     var self = this;
     i18next.changeLanguage(key, () => {
@@ -145,11 +153,11 @@ class AppComponent extends React.Component {
       downloadButton =
       <Row style={{paddingTop:'70px',paddingBottom:'70px'}}>
         <Col md={2} mdOffset={4} xs={4} xsOffset={2}>
-          <img src={apple} onClick={this.download.bind(this)}
+          <img src={apple} onClick={this.downloadFromAppStore.bind(this)}
                style={{width:'100%',height:'100%',}}/>
         </Col>
         <Col md={2} mdOffset={0} xs={4} xsOffset={0}>
-          <img src={play} onClick={this.download.bind(this)}
+          <img src={play} onClick={this.downloadFromPlay.bind(this)}
                style={{width:'100%',height:'100%',}}/>
         </Col>
       </Row>
